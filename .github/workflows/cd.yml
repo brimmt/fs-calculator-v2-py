@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CD Pipeline
 
 on:
   push:
@@ -62,11 +62,11 @@ jobs:
     # ---------------------------
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ github.repository }}:latest .
+        docker build -t ghcr.io/${{ github.repository_owner }}/fs-calculator-v2-py:latest
 
     # ---------------------------
     # 8. Push Docker image to GHCR
     # ---------------------------
     - name: Push Docker image
       run: |
-        docker push ghcr.io/${{ github.repository }}:latest
+        docker push ghcr.io/${{ github.repository_owner }}/fs-calculator-v2-py:latest
