@@ -1,9 +1,10 @@
 import os
 import openai
 import random
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from rate_limit import limiter
 
 router = APIRouter()
 load_dotenv()
@@ -19,9 +20,9 @@ class quizAnswer(BaseModel):
 
 operations = ["add", "subtract", "multiply", "divide", "power"]
 
-
+@limiter.limit("10/second")
 @router.get("/quiz")
-def generate_question():
+def generate_question(request: Request):
 
     num1 = random.randint(1, 10)
     num2 = random.randint(1, 10)

@@ -1,7 +1,12 @@
-from fastapi import FastAPI
-from calculator_logic import Calculate
+from fastapi import FastAPI, requests
 from fastapi.middleware.cors import CORSMiddleware
+
+from slowapi.middleware import SlowAPIMiddleware
+from slowapi.errors import RateLimitExceeded
+
+from rate_limit import limiter, rate_limit_handler
 from ai_logic import router as ai_router
+from calculator_logic import Calculate
 
 
 app = FastAPI()
@@ -14,6 +19,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_handler)
+app.add_middleware(SlowAPIMiddleware)
 
 @app.get("/")
 def root():

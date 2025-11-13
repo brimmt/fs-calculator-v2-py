@@ -7,3 +7,5 @@ flake8
 pydantic
 openai
 python-dotenv
+slowapi
+requests
