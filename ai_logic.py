@@ -20,6 +20,7 @@ class quizAnswer(BaseModel):
 
 operations = ["add", "subtract", "multiply", "divide", "power"]
 
+
 @limiter.limit("10/second")
 @router.get("/quiz")
 def generate_question(request: Request):

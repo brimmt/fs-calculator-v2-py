@@ -24,6 +24,7 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, rate_limit_handler)
 app.add_middleware(SlowAPIMiddleware)
 
+
 @app.get("/")
 def root():
     return {"message": "Server is running!"}
