@@ -1,5 +1,6 @@
 # Calculator V2 – Python + FastAPI + AI Quiz Mode
-![CI](https://github.com/brimmt/fs-calculator-v2-py/actions/workflows/ci.yml/badge.svg) <br>
+![CI](https://github.com/brimmt/fs-calculator-v2-py/actions/workflows/ci.yml/badge.svg) 
+![CD Pipeline](https://github.com/brimmt/fs-calculator-v2-py/actions/workflows/cd.yml/badge.svg)<br>
 ![Calculator Screenshot](assets/uipreview.png)
 
 The second version in my calculator app series, rebuilt from scratch with clean architecture, modern tooling, and real AI integration. Each version of this series is built in a different language or stack, and each one adds new features so I can keep leveling up as a developer.
