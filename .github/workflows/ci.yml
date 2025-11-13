@@ -1,0 +1,48 @@
+name: CI - Calculator V2
+
+on:
+  push:
+    branches: ["main", "staging"]
+  pull_request:
+    branches: ["main", "staging"]
+
+jobs:
+  build-test-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Python
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      # Cache pip installation
+      - name: Cache Python packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 black
+
+      # Run tests
+      - name: Run pytest
+        run: |
+          pytest -v
+      
+      # Check formatting with Black
+      - name: Check code formatting with Black
+        run: |
+          black --check .

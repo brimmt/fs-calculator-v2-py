@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <title> Calculator Version 2 </title>
+    </head>
+    <body>
+    
+       
+        <div class="app-wrapper">
+        <div class="calculator-container">
+            <div class="calc-title">Calculator V2</div>
+            <input type="text" id="display" readonly />
+
+        <div class="calculator-btns">
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn" data-value="/">÷</button>
+
+            <button class="btn" data-value="6">6</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="*">x</button>
+
+            <button class="btn" data-value="3">3</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="-">-</button>
+
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn" data-value="=">=</button>
+            <button class="btn" data-value="+">+</button>
+
+            <button class="btn" data-value="**">*</button>
+            <button class="btn clear" id="clear">C</button>
+            
+
+        </div>
+    </div>
+            <button id="quiz-btn" class="btn">AI Quiz Mode</button>
+
+    <script src="script.js" defer></script>
+    </body>
+
+    
+    <div id="quiz-drawer" class="quiz-drawer">
+        <div class="quiz-content">
+            <h2>AI Quiz Mode</h2>
+                <p id="quiz-question">Click "AI Quiz Mode" to start!</p>
+
+            <input type="text" id="quiz-answer" placeholder="Enter your answer" />
+            <button id="submit-answer">Submit</button>
+
+            <p id="quiz-feedback"></p>
+        </div>
+    </div>
+</div>
+</html>
