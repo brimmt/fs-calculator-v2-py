@@ -62,7 +62,7 @@ jobs:
     # ---------------------------
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/fs-calculator-v2-py:latest
+        docker buildx build --load -t ghcr.io/${{ github.repository_owner }}/fs-calculator-v2-py:latest .
 
     # ---------------------------
     # 8. Push Docker image to GHCR
